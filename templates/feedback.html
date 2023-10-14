@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/feedback.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form method="post">
+            <label for="name">Name (optional)</label> 
+            <input type="text" id="name" name="name" placeholder="Type in your name">
+            <br>
+            
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Feedback Subject" required>
+            <br>
+
+            <label for="description">Description of Feedback:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Enter a detailed description of your feedback" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
