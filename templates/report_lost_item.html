@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title> Report Item </title>
+    <link rel="stylesheet" type="text/css" href="../static/css/report_lost_item.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+</head>
+<body>
+
+        
+    <div class="right-side">
+        <div class="heading"><b><u>Reporting a Lost Item</u></b></div>
+        <br>
+        <p><b> Please provide the necessary information of the Found Item so it can be reunited with you. </b></p>
+        <form method="POST" enctype="multipart/form-data" action ="">
+            
+            <div class="input-box">
+                <label for="input-box"><b>Enter the item name* </b></label>
+                <input type="text" name="title" placeholder="Item name" required>
+            </div>
+            <br>
+            <div class = "drop-down-box">
+                <b> Select Category of item* </b>
+                <select name="Categories" label="Categories ">
+                    <option value="Documents">Documents</option>
+                    <option value="Gadgets">Gadgets</option>
+                    <option value="Stationary">Stationary</option>
+                    <option value="Jewelery">Jewelery</option>
+                    <option value="Bags/Wallets">Bags/Wallets</option>
+                    <option value="Others" selected>Others</option>
+                </select>
+            </div>
+            <div class="input-box message-box">
+                <label for="textarea"><b> Enter a short description of the item* </b></label>
+                <textarea name="description" placeholder="Description"
+                    required></textarea>
+            </div>
+            <br>
+            <div class="input-box">
+                <label for="text"><b> Enter the location where you lost this </b></label>
+                <input type="text" name="location" placeholder="Location">
+            </div>   
+            <br>        
+            <div class="input-box">
+                <label for="datetime"><b> Provide the accurate date & time </b></label>
+                <br>
+                <input type="datetime-local" id="datetime" name="datetime">
+            </div>
+            <br>
+            <label for="fileImg"><b> Upload an image </b></label>
+            <input id="fileImg" class="filechng" type="file" placeholder="Choose a file" name="fileImg">
+            
+            <input type="submit" value="Upload Now" class="button">
+            
+        </form>
+    </div>
+</body>
+</html>
