@@ -2,7 +2,6 @@
 {% load static %}
 <html lang="en" dir="ltr">
 
-
 <head>
     <meta charset="UTF-8">
     <title> Report Item </title>
@@ -16,7 +15,7 @@
         <div class="heading"><b><u>Reporting a Found Item</u></b></div>
         <br>
         <p><b> Please provide the necessary information of the Found Item so it can be reunited with it's Owner.</b></p>
-        <form action ="{% url 'afterReport' %}" method="POST" enctype="multipart/form-data">
+        <form action ="{% url 'report_found_item' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-box">
                 <label for="input-box"><b>Enter the item name* </b></label>
@@ -51,7 +50,7 @@
                 <input type="datetime-local" id="datetime" name="datetime">
             </div>
             <br>
-            <label for="fileImg"><b> Upload an image </b></label>
+            <label for="fileImg"><b> Upload an image of the item</b></label>
             <input id="fileImg" class="filechng" type="file" placeholder="Choose a file" name="item_image">
             
             <input type="submit" value="Upload Now" class="button">
