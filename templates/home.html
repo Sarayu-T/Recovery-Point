@@ -176,7 +176,7 @@ body::-webkit-scrollbar-thumb {
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{%url 'afterReport'%}">Report an item</a></li>
-                <li><a href="searching.html">Searching</a></li>
+                <li><a href="{%url 'searching'%}">Searching</a></li>
                 <li><a href="{% url 'ticket' %}">Ticket</a></li>
                 <li><a href="">Logout</a></li>
             </ul>
@@ -187,8 +187,8 @@ body::-webkit-scrollbar-thumb {
     </div>
     <div class="container">
 
-        <a href="" class="button" id="report_lost">Report Lost Item</a>
-        <a href="" class="button" id="report_found">Report Found Item</a>
+        <a href="{% url 'report_lost_item' %}" class="button">Report Lost Item</a>
+        <a href="{% url 'report_found_item' %}" class="button">Report Found Item</a>
 
 
     </div>
