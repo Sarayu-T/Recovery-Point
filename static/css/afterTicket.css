@@ -1,0 +1,25 @@
+body{
+    background-color:#c8e8e9;
+
+}
+
+h1{
+    align-content: center;
+    padding-left: 200px;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 50px;
+}
+
+h2{
+    padding-top: 50px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 350px;
+}
+
+img{
+    align-self: center;
+    padding-left: 550px;
+    height: 150px;
+}
