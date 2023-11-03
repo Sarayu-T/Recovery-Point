@@ -13,7 +13,7 @@ def afterReport(request):
 def report_lost_item(request):
     if request.method == 'POST':
         print("Received POST request")  # Check if the view is getting the POST request
-        print("Submissted data:", request.POST)  # Print the submitted data
+        print("SUBMITTED DATA:", request.POST)  # Print the submitted data
         if (
             request.POST.get('item_name') 
             and request.POST.get('category') 
@@ -40,9 +40,8 @@ def report_lost_item(request):
                         item.item_image = img               
                     except Exception as e:
                         return HttpResponse(f"Invalid image: {e}")
-                
                 else:
-                    error_message = 'Please upload only image files.'
+                    error_message = 'Please upload a valid image file.'
                     return render(request, 'report_lost_item.html', {'error_message': error_message})
             try:
                 item.save()
