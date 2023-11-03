@@ -40,8 +40,9 @@ def report_lost_item(request):
                         item.item_image = img               
                     except Exception as e:
                         return HttpResponse(f"Invalid image: {e}")
+                
                 else:
-                    error_message = 'Please upload a valid image file.'
+                    error_message = 'Please upload only image files.'
                     return render(request, 'report_lost_item.html', {'error_message': error_message})
             try:
                 item.save()
