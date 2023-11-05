@@ -1,23 +1,24 @@
+
+
+
 body {
-    padding-top: 50px;
     font-family: 'Times New Roman', Times, serif;
-    background-color:#eae9e7;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #c8e8e9;
 }
 
 .container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color:#c8e8e9;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    padding-top: 10px;
+    background-color:#b8ddde;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    padding: 30px;
-    width: 700px;
-    height: 400px;
+    width: 70%;
+    height: 450px;
+    /*text-align: center;*/
+    margin-left:200px;
+    font-family: 'Comfortaa', sans-serif;
     
 }
 
@@ -25,26 +26,40 @@ h2 {
     text-align: center;
     font-size: 30px;
     color:#000;
+    font-weight: 900;
 }
 
 label {
     display: block;
-    font-weight:lighter
+    font-weight:bold;
+    margin-left: 70px;
 }
 
-input[type="text"],
-textarea {
-    width: 100%;
+
+textarea{
+    height: 100px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 10px;
+    margin-left: 70px;
+}
+input[type="text"]
+{
+    width: 80%;
+    padding: 10px;
+    height: 30px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-left: 70px;
 }
 
 input[type="text"]:focus,
 textarea:focus {
     outline: none;
     border: 1px solid #007BFF;
+    border-radius: 5px;
 }
 
 input[type="submit"] {
@@ -54,8 +69,15 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-self: center;
+    margin-left: 370px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
 }
 
 input[type="submit"]:hover {
     background-color:#DDC3D0;
+    
 }
