@@ -44,8 +44,10 @@
     <h1>Lost and Found Management System</h1>
     
     <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search for lost items...">
-        <button id="search-button">Search</button>
+        <form action="{% url 'myapp:search' %}" method="get" class="search-form">
+            <input type="text" id="search-input" placeholder="Search for lost items...">
+            <button id="search-button">Search</button>
+        </form>
     </div>
 </body>
 </html>
