@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'lost_and_found.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'your_database_name',
-        'USER': 'your_database_user', # usually root
-        'PASSWORD': 'your_database_password',
+        'NAME': '',
+        'USER': 'root', # usually root
+        'PASSWORD': '',
         'HOST': 'localhost',  # Or the address of your MySQL server
         'PORT': '',    # Use the default MySQL port (3306) or specify a different port
     }
