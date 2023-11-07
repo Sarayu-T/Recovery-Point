@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        alert("Please upload a valid image!");
+        setTimeout(function () {
+            var destinationPage = '{% if error == 1 %}report_lost_item{% elif error == 2 %}report_found_item{% endif %}';
+            window.location.href = destinationPage; // Set the destination based on error_occurred
+    }, 100); // Replace with the actual destination page
+</script>
+</body>
+</html>

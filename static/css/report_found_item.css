@@ -1,18 +1,16 @@
-/* Google Font CDN Link */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 5px;
   box-sizing: border-box;
-  font-family: "Times New Roman", sans-serif;
 }
 body {
+  font-family: 'Comfortaa', sans-serif;
   min-height: 100vh;
   width: 100%;
   background: #c8e8e9;
-  display: flex;
+  /*display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
 }
 
 select {
@@ -23,10 +21,14 @@ select {
 
 .heading {
     font-size: 33px;
+    margin-left: 100px;
   }
 
 .right-side { /* everyone */
     font-size: 17px;
+    width: 60%;
+    margin-left: 250px;
+    padding-left: 90px;
   }
 
 .filechng {
@@ -43,11 +45,12 @@ select {
   padding-left: 0.5em;
 }
 .container {
-  width: 85%;
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
 }
 .container .content {
   display: flex;
@@ -109,6 +112,7 @@ select {
 }
 .right-side .input-box input,
 .right-side .input-box textarea {
+  font-family: 'Times New Roman', sans-serif;
   height: 100%;
   width: 100%;
   border: none;

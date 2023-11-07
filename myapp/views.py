@@ -42,8 +42,8 @@ def report_lost_item(request):
                         return HttpResponse(f"Invalid image: {e}")
                 
                 else:
-                    error_message = 'Please upload only image files.'
-                    return render(request, 'report_lost_item.html', {'error_message': error_message})
+                    error = 1
+                    return render(request, 'alert.html', {'error': error})
             try:
                 item.save()
                 messages.success(request, "Your report has been submitted!")
@@ -88,8 +88,8 @@ def report_found_item(request):
                     except Exception as e:
                         return HttpResponse(f"Invalid image: {e}")
                 else:
-                    error_message = 'Please upload only image files.'
-                    return render(request, 'report_found_item.html', {'error_message': error_message})
+                    error = 2
+                    return render(request, 'alert.html', {'error': error})
             try:
                 item.save()
                 messages.success(request, "Your report has been submitted!")

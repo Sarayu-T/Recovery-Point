@@ -5,16 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title> Report Item </title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/report_lost_item.css' %}" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.75">
 </head>
 <body>
 
-        
+    {% include 'navbar.html' %}
     <div class="right-side">
         <div class="heading"><b><u>Reporting a Lost Item</u></b></div>
         <br>
-        <p><b> Please provide the necessary information of the Found Item so it can be reunited with you. </b></p>
+        <p><b> Please provide the necessary information of the Lost Item so it can be reunited with you. </b></p>
         <form action ="{% url 'report_lost_item' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-box">

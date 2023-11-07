@@ -12,7 +12,7 @@ class LostItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=30) # null=True means optional
     category = models.CharField(max_length=30)
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
     location_lost = models.CharField(max_length=100, blank=True)
     datetime = models.DateTimeField(blank=True)
     item_image = models.ImageField(upload_to=filepath, null=True, blank=True)
@@ -25,7 +25,7 @@ class FoundItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=30)
     category = models.CharField(max_length=30)
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
     location_found = models.CharField(max_length=100, blank=True)
     datetime = models.DateTimeField(blank=True)
     item_image = models.ImageField(upload_to=filepath, null=True, blank=True)
@@ -33,4 +33,3 @@ class FoundItemDetails(models.Model):
     class Meta:
         managed = False
         db_table = 'found_item'
-

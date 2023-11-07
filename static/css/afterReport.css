@@ -10,9 +10,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 p{
@@ -27,6 +24,8 @@ p{
     height: 50%;
     width: 50%;
     background-color: #d8eaeb;
+    margin-left: 300px;
+    margin-top: 100px;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     display: flex;

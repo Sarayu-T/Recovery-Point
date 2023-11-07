@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+  .navbar {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0); 
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+
+  .navbar{
+            margin: 0;
+            margin-left: 0;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 16px;
+        }
+
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'afterReport' %}">Report an item</a>
+  <a href="{% url 'home' %}">Searching</a>
+  <a href="{% url 'afterReport' %}">Ticket</a>
+  <a href="{% url 'home' %}">Log out</a>
+</div>
+
+</body>
+</html>
