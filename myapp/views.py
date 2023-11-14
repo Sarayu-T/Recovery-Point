@@ -46,10 +46,8 @@ def report_lost_item(request):
                     return render(request, 'alert.html', {'error': error})
             try:
                 item.save()
-                messages.success(request, "Your report has been submitted!")
                 return redirect('afterReport')
             except Exception as e:
-                messages.error(request, f"Error saving item: {e}")
                 return HttpResponse(f"Error saving item: {e}")       
         else:
             print("Missing required fields")  # Check if any required fields are missing
@@ -71,12 +69,10 @@ def report_found_item(request):
             item.item_name = request.POST.get('item_name')
             item.category = request.POST.get('category')
             item.description = request.POST.get('description')
-            item.location_lost = request.POST.get('location_found')
+            item.location_found = request.POST.get('location_found')
 
             if request.POST.get('datetime'):
                 item.datetime = request.POST.get('datetime')
-            else:
-                item.datetime = timezone.now()  # Set current datetime if none is provided
 
             if 'item_image' in request.FILES:
                 img = request.FILES['item_image']
@@ -92,10 +88,8 @@ def report_found_item(request):
                     return render(request, 'alert.html', {'error': error})
             try:
                 item.save()
-                messages.success(request, "Your report has been submitted!")
                 return redirect('afterReport')
             except Exception as e:
-                messages.error(request, f"Error saving item: {e}")
                 return HttpResponse(f"Error saving item: {e}")
         else:
             print("Missing required fields")  # Check if any required fields are missing
