@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import Item
+from .models import LostItemDetails
 import pymysql as sql
 
 # Create your views here.
-def search(request):
-  query = request.GET.get('search')
-  results = Item.objects.filter(item_name__icontains=query) | Item.objects.filter(location_lost__icontains=query)
-
-return render(request, 'searching.html')
+def searchbar(request):
+  if request.method == 'GET':
+    search = request.GET.get('search')
+    post = LostItemDetails.objects.all().filter(title=search)
+return render(request, 'searchbar.html', {'post': post})
