@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Searching - Lost and Found Management System</title>
-    <link rel="stylesheet" type="text/css" href="% static 'css/styles.css' %">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
     <style>
         body {
@@ -42,6 +42,8 @@
 </head>
 <body>
     <h1>Lost and Found Management System</h1>
+
+    <!--
     
     <div class="search-container">
         <form action="{% url 'myapp:search' %}" method="get" class="search-form">
@@ -49,5 +51,14 @@
             <button id="search-button">Search</button>
         </form>
     </div>
+    -->
+    <center>
+    <form action="{%url 'searchbar' %}" method="get">
+        <input type="text" name="search"/>
+        <button type="submit">Search</button>
+    </form>
+</center>
+
+    
 </body>
 </html>
