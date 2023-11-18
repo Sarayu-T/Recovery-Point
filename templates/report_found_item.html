@@ -17,15 +17,28 @@
         <div class="heading"><b><u>Reporting a Found Item</u></b></div>
         <br>
         <p><b> Please provide the necessary information of the Found Item so it can be reunited with it's Owner.</b></p>
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+
+
         <form action ="{% url 'report_found_item' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-box">
-                <label for="input-box"><b>Enter the item name* </b></label>
+                <label for="input-box"><b>Enter the item name * </b></label>
                 <input type="text" name="item_name" placeholder="Item name" required>
             </div>
             <br>
             <div class = "drop-down-box">
-                <b> Select Category of item* </b>
+                <b> Select Category of item * </b>
                 <select name="category" label="category ">
                     <option value="Documents">Documents</option>
                     <option value="Gadgets">Gadgets</option>
@@ -36,13 +49,13 @@
                 </select>
             </div>
             <div class="input-box message-box">
-                <label for="textarea"><b> Enter a short description of the item* </b></label>
+                <label for="textarea"><b> Enter a short description of the item * </b></label>
                 <textarea name="description" placeholder="Description"
                     required></textarea>
             </div>
             <br>
             <div class="input-box">
-                <label for="text"><b> Enter the location where you found this* </b></label>
+                <label for="text"><b> Enter the location where you found this * </b></label>
                 <input type="text" name="location_found" placeholder="Location" required>
             </div>   
             <br>        

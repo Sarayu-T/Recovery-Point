@@ -9,21 +9,22 @@
                 background-color: #c8e8e9;
             }
             button{
-                background-color: #4CAF50;
+                background-color: #c8e8e9;
                 width: 25%;
                 padding: 15px;
                 color: black;
                 border: none;
-                float: center;
+                float:center;
                 font-size: 15px;
             }
             label{
                 font-size: 20px;
             }
             form{
-                border: 3px solid #f1f1f1;
+                border: 3px solid white;
+                
             }
-            input[type=email],input[type=text]{
+            input[type=email],input[type=text], input[type=password]{
                 width: 50%;
                 font-size: 15px;
                 margin: 8px 0px;
@@ -56,7 +57,16 @@
         </style>
     </head>
     <body>
-        <center><h1>Register From</h1></center>
+        <center><h1>Register Form</h1></center>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
         <form action="{% url 'signup_page' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% load static %}
@@ -70,10 +80,10 @@
                 <label for ='email'><b>Email Id :  </b></label>
                 <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
                 <label for='password'><b>Password : </b></label>
-                <input type="text" placeholder="Enter Password" name="password" required><br>  
+                <input type="password" placeholder="Enter Password" name="password" required><br>  
                 <label for='phone_no'><b>Phone no :</b></label>
-                <input type='text' placeholder='Enter your phone number' name='phone_no' required><br>
-                <button type="submit"><b>Signup</b></button><br>     
+                <input type='text' placeholder='Enter your 10 digit phone number' name='phone_no' pattern='\d{10}' required><br>
+                <button type="submit"><b>Signup</b></button><br><br>     
                 Already have an account? <a href="{% url 'login_page' %}"> Login </a>
             </div></center>
         </form>

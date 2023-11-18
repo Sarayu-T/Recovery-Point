@@ -8,8 +8,20 @@ def filepath(request, filename):
     filename = "%s-%s" % (timeNow, old_filename)
     return os.path.join('uploads/', filename)
 
+class users(models.Model):
+    user_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30)
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=128)
+    phone_no = models.CharField(max_length=10, unique= True)
+
+    class Meta:
+        managed = False
+        db_table = 'users'
+        
 class LostItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
+    user_id = models.IntegerField(default=0) 
     item_name = models.CharField(max_length=30) # null=True means optional
     category = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
@@ -23,6 +35,7 @@ class LostItemDetails(models.Model):
 
 class FoundItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
+    user_id = models.IntegerField(default=0) 
     item_name = models.CharField(max_length=30)
     category = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
@@ -33,14 +46,3 @@ class FoundItemDetails(models.Model):
     class Meta:
         managed = False
         db_table = 'found_item'
-
-class users(models.Model):
-    user_id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=30)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    phone_no = models.CharField(max_length=10, unique= True)
-
-    class Meta:
-        managed = False
-        db_table = "users"
