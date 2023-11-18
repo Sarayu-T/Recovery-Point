@@ -9,7 +9,7 @@
     <script>
         function validateForm() {
             var name = document.getElementById("name").value;
-            var nameRegex = /^[A-Za-z\s]+$/; 
+            var nameRegex = /^[A-Za-z\s]*$/;
 
             if (!name.match(nameRegex)) {
                 alert("Please enter a valid name with letters and spaces only.");
