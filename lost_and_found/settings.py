@@ -14,7 +14,6 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
 STATIC_DIR = Path.joinpath(BASE_DIR, 'static')
 TEMPLATES_DIR = Path.joinpath(BASE_DIR, 'templates')
 
@@ -79,9 +78,9 @@ WSGI_APPLICATION = 'lost_and_found.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Ticket_db',
+        'NAME': '', # add your Database name
         'USER': 'root', # usually root
-        'PASSWORD': '',
+        'PASSWORD': '', # add your MySQL password here
         'HOST': 'localhost',  # Or the address of your MySQL server
         'PORT': '',    # Use the default MySQL port (3306) or specify a different port
     }
@@ -135,4 +134,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'lostandfoundsystem13@gmail.com'
-EMAIL_HOST_PASSWORD = 'gaks sxxb nivs agjw'
+EMAIL_HOST_PASSWORD = 'gakssxxbnivsagjw'

@@ -7,7 +7,8 @@
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0); 
   }
-  .navbar-left a {
+
+  .navbar-left a {  
     float: left;
     display: block;
     color: #000;
@@ -15,6 +16,7 @@
     padding: 14px 16px;
     text-decoration: none;
   }
+
   .navbar-right a {
     float: right;
     display: block;
@@ -23,30 +25,30 @@
     padding: 14px 16px;
     text-decoration: none;
   }
+
   .navbar a:hover {
     background-color: rgba(0, 0, 0, 0.4); 
-  }
+}
 
   .navbar-left{
-            margin: 0;
-            margin-left: 0;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 16px;
-        }
+    margin: 0;
+    margin-left: 0;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+}
 
   .navbar-right{
-            margin: 0;
-            margin-right: 0;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 16px;
-
-  }
+    margin: 0;
+    margin-right: 0;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+}
 
   .active-link {
     /*background-color: rgba(0, 0, 0, 0.2);*/
     font-weight: 600;
     text-shadow: 0 0 5px rgb(180, 174, 174);
-  }
+}
 
 
 </style>
@@ -66,9 +68,8 @@
 </div>
 <div class="navbar-right">
   
-  <a href="{% url 'home' %}">Log out</a>
+  <a href="{% url 'login_page' %}">Log out</a>
   <a href="{%url 'home'}">Your reports</a>
-</div>
 </div>
 
 </body>

@@ -270,8 +270,9 @@ body::-webkit-scrollbar-thumb {
     </div>
     <div class="container">
 
-        <a href="" class="button" id="report_lost">Report Lost Item</a>
-        <a href="" class="button" id="report_found">Report Found Item</a>
+        <a href="{% url 'report_lost_item' %}" class="button">Report Lost Item</a>
+        <a href="{% url 'report_found_item' %}" class="button">Report Found Item</a>
+
     </div>
 </body>
 </html>
