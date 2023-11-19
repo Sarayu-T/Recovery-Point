@@ -19,6 +19,17 @@ class users(models.Model):
         managed = False
         db_table = 'users'
         
+class Ticket(models.Model):
+    ticket_id = models.AutoField(primary_key=True)
+    user_id = models.IntegerField(default=0) 
+    name = models.CharField(max_length=30, null=True)
+    subject = models.CharField(max_length=100)
+    issue = models.CharField(max_length=300)
+
+    class Meta:
+        managed = False
+        db_table = 'ticket'       
+        
 class LostItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
     user_id = models.IntegerField(default=0) 

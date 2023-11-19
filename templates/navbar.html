@@ -7,7 +7,8 @@
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0); 
   }
-  .navbar a {
+
+  .navbar-left a {  
     float: left;
     display: block;
     color: #000;
@@ -15,16 +16,39 @@
     padding: 14px 16px;
     text-decoration: none;
   }
-  .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.4); 
+
+  .navbar-right a {
+    float: right;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
   }
 
-  .navbar{
-            margin: 0;
-            margin-left: 0;
-            font-family: 'Comfortaa', sans-serif;
-            font-size: 16px;
-        }
+  .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+  .navbar-left{
+    margin: 0;
+    margin-left: 0;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+}
+
+  .navbar-right{
+    margin: 0;
+    margin-right: 0;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+}
+
+  .active-link {
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    font-weight: 600;
+    text-shadow: 0 0 5px rgb(180, 174, 174);
+}
 
 
 </style>
@@ -32,11 +56,20 @@
 <body>
 
 <div class="navbar">
-  <a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'afterReport' %}">Report an item</a>
-  <a href="{% url 'home' %}">Searching</a>
-  <a href="{% url 'afterReport' %}">Ticket</a>
+  <div class="navbar-left">
+    {% if request.path == "/" %}
+    <a href="{% url 'home' %}" class="active-link">Home</a>
+{% else %}
+    <a href="{% url 'home' %}">Home</a>
+{% endif %}
+  <a href="{% url 'home' %}" {% if 'model_matching' in request.path %}class="active-link"{% endif %}>Matched reports</a>
+  <a href="{% url 'home' %}" >Searching</a>
+  <a href="{% url 'ticket' %}" {% if 'ticket' in request.path %}class="active-link"{% endif %}>Ticket</a>
+</div>
+<div class="navbar-right">
+  
   <a href="{% url 'login_page' %}">Log out</a>
+  <a href="{%url 'home'}">Your reports</a>
 </div>
 
 </body>

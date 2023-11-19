@@ -17,7 +17,8 @@ create table ticket (
 `name` varchar(30),
 `subject` varchar(100) not null,
 `issue` varchar(300) not null,
-primary key(`ticket_id`)
+primary key(`ticket_id`),
+FOREIGN KEY (`user_id`) references `users`(`user_id`) on update cascade on delete cascade
 );
 
 -- Lost Item details table
@@ -48,11 +49,11 @@ PRIMARY KEY(`ID`),
 FOREIGN KEY (`user_id`) references `users`(`user_id`) on update cascade on delete cascade
 );
 
-
 -- To display all users, lost items and found items
 select * from users;
 select * from lost_item;
 select * from found_item;
+select * from ticket;
 
 -- To view all Lost and Found Items by a particular user
 SELECT * FROM lost_item WHERE user_id = 1 UNION ALL SELECT * FROM found_item WHERE user_id = 1;
@@ -94,4 +95,3 @@ INSERT INTO found_item (item_name, category, description, location_found)
 VALUES (1, 'Lost Wallet', 'Bags/Wallets', 'Brown leather wallet', 'Library');
 INSERT INTO found_item (item_name, category, description, location_found) 
 VALUES (1, 'Lost Wallet', 'Bags/Wallets', 'Brown leather wallet', 'Library');
-

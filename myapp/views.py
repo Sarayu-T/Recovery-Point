@@ -1,21 +1,24 @@
-from django.shortcuts import redirect, render
-from myapp.models import LostItemDetails, FoundItemDetails, users
+from django.shortcuts import render,redirect
+from django.conf import settings
 from django.utils import timezone
 from django.urls import reverse
-from django.conf import settings
+from myapp.models import LostItemDetails, FoundItemDetails, users, Ticket
 from django.core.mail import send_mail
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages   
 from django.template.loader import render_to_string
 
-
+# Create your views here.
 
 def home(request):
     return render(request, 'home.html')
 
+def afterTicket(request):
+    return render(request, 'afterTicket.html')
+
 def afterReport(request):
-    return render(request, 'afterReport.html') 
+    return render(request, 'afterReport.html')  
 
 def login_page(request):
     if request.method == "POST":
@@ -41,6 +44,7 @@ def login_page(request):
     else:
         return render(request, "login_page.html")
 
+      
 def signup_page(request):
     if request.method == "POST":
         name = request.POST.get("name")
@@ -68,6 +72,41 @@ def signup_page(request):
         return redirect(reverse("login_page"))
     else:
         return render(request, "signup_page.html")
+    
+def send_email_view(request, email):  
+    form_data = {
+        'name': request.POST.get('name'),
+        'subject': request.POST.get('subject'),
+        'issue': request.POST.get('issue'),
+    }
+    email_message = render_to_string('ticketEmail.html', form_data)
+
+    # Send the email
+    send_mail(
+        subject='Your Ticket Details',
+        message='',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[email],
+        html_message=email_message,
+    )
+    return redirect('afterTicket')
+
+def ticket(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        subject = request.POST['subject']
+        issue = request.POST['issue']                    
+        
+        ticket = Ticket.objects.create(name=name, subject=subject, issue=issue)
+        
+        user_email = request.session['email']
+        user = users.objects.get(email=user_email)
+        ticket.user_id = user.user_id
+        
+        send_email_view(request, user_email)
+        return redirect('afterTicket')
+    else:
+        return render(request, 'ticket.html')
 
 def report_lost_item(request):
     if request.method == 'POST':
@@ -192,4 +231,3 @@ def send_mail_report_found(item, email):
     context = {'item': item_dict}
     email_message = render_to_string('reportEmail_found.html', context)
     send_mail(subject, '', from_email, recipient_list, html_message=email_message) 
-

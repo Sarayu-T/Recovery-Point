@@ -1,11 +1,11 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 
 body {
-    background-image: url('../images/submit.jpg');
+    background-image: url('../images/submit5.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -23,18 +23,17 @@ p{
     height: 50%;
     width: 50%;
     background-color: #d8eaeb;
-    margin-left: 300px;
-    margin-top: 100px;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+    margin-left: 300px;
 }
-
 img{
     align-self: center;
-    padding-left: 210px;
+    padding-left: 50px;
     height: 140px;
     margin-right: 70px;   
 }
