@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Report Item </title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/report_found_item.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+    <br><br>
+    <div class="right-side">
+        <div class="heading"><b><u>Reporting a Found Item</u></b></div>
+        <br>
+        <p><b> Please provide the necessary information of the Found Item so it can be reunited with it's Owner.</b></p>
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+
+
+        <form action ="{% url 'report_found_item' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-box">
+                <label for="input-box"><b>Enter the item name * </b></label>
+                <input type="text" name="item_name" placeholder="Item name" required>
+            </div>
+            <br>
+            <div class = "drop-down-box">
+                <b> Select Category of item * </b>
+                <select name="category" label="category ">
+                    <option value="Documents">Documents</option>
+                    <option value="Book">Book</option>
+                    <option value="Gadgets">Gadgets</option>
+                    <option value="Stationary">Stationary</option>
+                    <option value="Jewelery">Jewelery</option>
+                    <option value="Bags/Wallets">Bags/Wallets</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Others" selected>Others</option>
+                </select>
+            </div>
+            <div class="input-box message-box">
+                <label for="textarea"><b> Enter a short description of the item * </b></label>
+                <textarea name="description" placeholder="Description"
+                    required></textarea>
+            </div>
+            <br>
+            <div class="input-box">
+                <label for="text"><b> Enter the location where you found this * </b></label>
+                <input type="text" name="location_found" placeholder="Location" required>
+            </div>   
+            <br>        
+            <div class="input-box">
+                <label for="datetime"><b> Provide the accurate date & time </b></label>
+                <br>
+                <input type="datetime-local" id="datetime" name="datetime">
+            </div>
+            <br>
+            <label for="fileImg"><b> Upload an image of the item</b></label>
+            <input id="fileImg" class="filechng" type="file" placeholder="Choose a file" name="item_image">
+            
+            <input type="submit" value="Upload Now" class="button">
+            
+        </form>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+           const datetimeInput = document.getElementById('datetime');
+
+           // Get the current date and time
+           const now = new Date();
+           const year = now.getFullYear();
+           const month = (now.getMonth() + 1).toString().padStart(2, '0');
+           const day = now.getDate().toString().padStart(2, '0');
+           const hours = now.getHours().toString().padStart(2, '0');
+           const minutes = now.getMinutes().toString().padStart(2, '0');
+
+           // Format the date and time as YYYY-MM-DDTHH:MM (required format for datetime-local input)
+           const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+           // Set the max attribute of the input element
+           datetimeInput.setAttribute('max', currentDateTime);
+       });
+   </script>
+
+</body>
+</html>

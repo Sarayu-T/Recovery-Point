@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/ticket.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var nameRegex = /^[A-Za-z\s]*$/;
+
+            if (!name.match(nameRegex)) {
+                alert("Please enter a valid name with letters and spaces only.");
+                location.reload();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+        {%include 'navbar.html'%}
+    
+       <div class="container">
+        <h2>Feedback Form</h2>
+        <form  method="POST" enctype="multipart/form-data" onsubmit="return validateForm();">
+            {% csrf_token %}
+            <label for="name">Name</label> 
+            <input type="text" id="name" name="name" placeholder="Type in your name">
+            <br>
+            
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" placeholder="Feedback Subject" required>
+            <br>
+
+            <label for="issue">Description of Feedback *</label>
+            <textarea id="issue" name="issue" rows="7" class="textarea-part" placeholder="Enter a detailed description of your feedback" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #c8e8e9;
+}
+
+h1{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 28px;
+    margin-top: 80px;
+}
+
+input[type="text"]{
+    width: 400px;
+}
+
+.search-main-stuff form{
+    margin-left: 480px;
+}
+
+button{
+    background-color: #DDC3D0;
+}
+
+select,
+        input[type="text"],
+        button {
+            font-size: 20px; /* Adjust the font size as needed */
+            border-radius: 10px;
+            border-color: #c8e8e9;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+.location{
+    width:20%;
+}
+.timestamp{
+    width:25%;
+}
+.id{
+    width:5%;
+}
+.user_id{
+    width:5%;
+}
+.name{
+    width:10%
+}
+
+.category{
+    width:10%
+}
+.description{
+    width: 20%;
+}
+
+.delete{
+    width:5%;
+}
+
+.image{
+    width:250px;
+}
+table{
+    text-align: center;
+}

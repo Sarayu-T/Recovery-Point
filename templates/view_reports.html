@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Lost Items</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_Items.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {%include 'navbar.html'%}
+    <br><br>
+    <h1>Your Lost Items</h1>
+    <table border="1">
+
+        <thead>
+            <tr>
+                
+                <th class="name">Name</th>
+                <th class="category">Category</th>
+                <th class="description">Description</th>
+                <th class="location">Location lost</th>
+                <th class="datetime">Date & Time</th>
+                <th class="image">Image</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for lost_item in user_reports_lost %}
+            <tr>
+                <td>{{ lost_item.item_name }}</td>
+                <td>{{ lost_item.category }}</td>
+                <td>{{ lost_item.description }}</td>
+                <td>{{ lost_item.location_lost }}</td>
+                <td>{{ lost_item.datetime }}</td>
+                <td>
+                    {% if lost_item.item_image %}
+                    <img src="{{ lost_item.item_image.url }}" alt="{{ lost_item.item_name }}" style="width:200px;">
+                    {% else %}
+                    No Image available
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <h1>Your Found Items</h1>
+    <table border="1">
+
+        <thead>
+            <tr>
+                
+                <th class="name">Name</th>
+                <th class="category">Category</th>
+                <th class="description">Description</th>
+                <th class="location">Location found</th>
+                <th class="datetime">Date & Time</th>
+                <th class="image">Image</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for found_item in user_reports_found %}
+            <tr>
+                <td>{{ found_item.item_name }}</td>
+                <td>{{ found_item.category }}</td>
+                <td>{{ found_item.description }}</td>
+                <td>{{ found_item.location_found }}</td>
+                <td>{{ found_item.datetime }}</td>
+                <td>
+                    {% if found_item.item_image %}
+                    <img src="{{ found_item.item_image.url }}" alt="{{ found_item.item_name }}" style="width:200px;">
+                    {% else %}
+                    No Image available
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

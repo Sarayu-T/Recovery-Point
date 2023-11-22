@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Model Matching Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+    background: #c8e8e9;  
+    height: 100vh;
+    margin: 0;
+    }
+    .heading {
+        font-size: 33px;
+        font-family: 'Comfortaa', sans-serif;
+        
+        text-align: center;
+        margin-top:70px;
+    }
+    .ul {
+        font-family: 'Comfortaa', sans-serif;
+    }
+    .columns {
+        display: flex;
+        flex-wrap: wrap;  
+        font-size: 25px;   
+        width: 120%;   
+        margin-left: 40px;
+        padding-right: 100px;
+        flex-direction: row;
+    }
+
+    .col {
+        margin-bottom: 20px; 
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        width:45%;
+    }
+
+    .claim-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #4d7375;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+
+    {% include 'navbar.html' %}
+    <br><br>
+    <div class="heading"><b><u>Could any of these be your items?</u></b></div>
+    <br><br>
+    {% if matched_items %}
+    <li>
+        <div class="columns">
+            {% for lost_item, found_item in matched_items %}
+            <div><p></p></div>
+                <div class="col">
+                    <strong>Lost Item:</strong>
+                    <ul>
+                        <li>Item name: {{ lost_item.item_name }}</li>
+                        <li>Category: {{ lost_item.category }}</li>
+                        <li>Location Lost: {{ lost_item.location_lost }}</li>
+                        <li>Description: {{ lost_item.description }}</li><br>
+                        {% if lost_item.item_image and lost_item.item_image.url %}
+                        <li>Image:    <img src="{{ lost_item.item_image.url }}" alt="{{ lost_item.item_name }}" style="height:100px;"></li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="col">
+                    <strong>Found Item:</strong>
+                    <ul>
+                        <li>Item name: {{ found_item.item_name }}</li>
+                        <li>Category: {{ found_item.category }}</li>
+                        <li>Location Found: {{ found_item.location_found }}</li>
+                        <li>Description: {{ found_item.description }}</li><br>
+                        {% if found_item.item_image and found_item.item_image.url %}
+                        <li>Image: <img src="{{ found_item.item_image.url }}" alt="{{ found_item.item_name }}" style="height:100px;"></li>
+                        {% else %}
+                        No Image available
+                        {% endif %}  
+                                
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+    </li>
+    {% else %}
+    <div class="col">
+        <strong> No matched items found! </strong>
+    </div>
+        
+    {% endif %} 
+
+</body>
+</html>

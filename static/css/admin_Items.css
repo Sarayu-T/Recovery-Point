@@ -1,0 +1,41 @@
+.tble{
+    color: blueviolet;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #c8e8e9;
+}
+th,td{
+    text-align: center;
+}
+
+.id{
+    width:5%;
+}
+.user_id{
+    width:5%;
+}
+.name{
+    width:10%
+}
+
+.category{
+    width:10%
+}
+.description{
+    width: 15%;
+}
+
+.datetime
+{
+    width:10%;
+}
+
+.delete{
+    width:5%;
+}
+
+.image{
+    width:35%;
+}

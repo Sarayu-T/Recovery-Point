@@ -1,0 +1,26 @@
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #c8e8e9;
+}
+th,td{
+    text-align: center;
+}
+.issue{
+    width: 40%;
+}
+
+.subject{
+    width: 30%;
+}
+
+.name{
+    width:10%
+}
+
+.id{
+    width:5%;
+}
+.delete{
+    width:5%;
+}

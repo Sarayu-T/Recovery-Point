@@ -21,3 +21,29 @@ To add files to your branch:
 * **please adhere to this otherwise it becomes double the work to fix it** 
 * **AND ASK DOUBTS IF YOU HAVE**
 * **don't directly put your code into main**
+
+INDIVIDUAL CONTRIBUTIONS
+
+    Samyukta
+* Reporting functionality - Frontend and Backend and viewing reports (Lost & Found Items)
+* System Integration (all functionalities)
+* Django Application Setup
+* Email notification
+* Admin roles
+
+
+    Sarayu
+* Ticket functionality - Frontend and Backend
+* Model Matching 
+* Searching based on criteria 
+* Navbar 
+* Admin roles
+
+    Shravya 
+* Registration
+* Admin Roles
+
+    Sanjana
+* Searching - html page
+* Home - html page
+* Documentation

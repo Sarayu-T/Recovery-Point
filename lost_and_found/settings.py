@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'lost_and_found.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'your_database_name',
-        'USER': 'your_database_user', # usually root
-        'PASSWORD': 'your_database_password',
+        'NAME': '', # add your Database name
+        'USER': 'root', # usually root
+        'PASSWORD': '', # add your MySQL password here
         'HOST': 'localhost',  # Or the address of your MySQL server
         'PORT': '',    # Use the default MySQL port (3306) or specify a different port
     }
@@ -128,3 +128,13 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'lostandfoundsystem13@gmail.com'
+EMAIL_HOST_PASSWORD = 'gakssxxbnivsagjw'
+
+MEDIA_ROOT = BASE_DIR / 'uploads'  # Path to the directory where user-uploaded files are stored
+MEDIA_URL = '/uploads/'

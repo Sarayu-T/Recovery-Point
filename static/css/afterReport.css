@@ -1,0 +1,40 @@
+html, body {
+    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/submit.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+p{
+    align-content: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 30px;
+    margin-top: 7px;
+    margin-left: 60px;
+}
+
+.container {
+    height: 280px;
+    width: 670px;
+    background-color: #d8eaeb;
+    margin-left: 300px;
+    margin-top: 140px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    align-self: center;
+    padding-left: 210px;
+    height: 140px;
+    margin-right: 70px;   
+}

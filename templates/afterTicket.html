@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Response</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/afterReport.css' %}">
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+        
+
+    
+    <div class="container">
+<!--        <h1>Thank you for providing your feedback!</h1>-->
+        <p>Your response has been successfully submitted!</p>
+        <img src="{% static 'images/blue-tick.png' %}" alt="green-tick">
+    </div>
+</body>
+</html>

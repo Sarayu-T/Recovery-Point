@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Lost Items</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_Items.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+</head>
+<body>
+    {%include 'admin_navbar.html'%}
+    <h1>All Lost Items</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="id">ID</th>
+                <th class="user_id">User ID</th>
+                <th class="name">Name</th>
+                <th class="category">Category</th>
+                <th class="description">Description</th>
+                <th class="location">Location lost</th>
+                <th class="datetime">Date & Time</th>
+                <th class="image">Image</th>
+                <th class="delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lost_item in lost_items %}
+            <tr>
+                <td>{{ lost_item.id }}</td>
+                <td>{{ lost_item.user_id }}</td>
+                <td>{{ lost_item.item_name }}</td>
+                <td>{{ lost_item.category }}</td>
+                <td>{{ lost_item.description }}</td>
+                <td>{{ lost_item.location_lost }}</td>
+                <td>{{ lost_item.datetime }}</td>
+                <td>
+                    {% if lost_item.item_image %}
+                    <img src="{{ lost_item.item_image.url }}" alt="{{ lost_item.item_name }}" style="width:200px;">
+                    {% else %}
+                    No Image available
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="{% url 'delete_lost_item' lost_item.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
