@@ -21,7 +21,7 @@
                 font-size: 20px;
             }
             form{
-                border: 3px solid white;
+                border: 3px solid #f1f1f1;
                 
             }
             input[type=email],input[type=text], input[type=password]{
@@ -54,11 +54,24 @@
                 width: 10%;
                 border-radius: 50%;
             }  
+            .messages {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+                z-index: 9999;
+                text-align: center; 
+                color: #ff0000; 
+                font-weight: bold;
+                background-color: transparent;
+                border: 1px solid #000000;
+                padding: 10px; 
+            }
+
         </style>
     </head>
     <body>
         <center><h1>Register Form</h1></center>
-
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -80,10 +93,10 @@
                 <label for ='email'><b>Email Id :  </b></label>
                 <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
                 <label for='password'><b>Password : </b></label>
-                <input type="password" placeholder="Enter Password" name="password" required><br>  
+                <input type="text" placeholder="Enter Password" name="password" required><br>  
                 <label for='phone_no'><b>Phone no :</b></label>
                 <input type='text' placeholder='Enter your 10 digit phone number' name='phone_no' pattern='\d{10}' required><br>
-                <button type="submit"><b>Signup</b></button><br><br>     
+                <button type="submit"><b>Signup</b></button><br><br>    
                 Already have an account? <a href="{% url 'login_page' %}"> Login </a>
             </div></center>
         </form>

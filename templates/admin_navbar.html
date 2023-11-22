@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+  .navbar {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0); 
+  }
+  .navbar-left a {
+    float: left;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar-right a {
+    float: right;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+
+  .navbar-left{
+            margin: 0;
+            margin-left: 0;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 16px;
+        }
+
+  .navbar-right{
+            margin: 0;
+            margin-right: 0;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 16px;
+
+  }
+
+  .active-link {
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    font-weight: 600;
+    text-shadow: 0 0 5px rgb(180, 174, 174);
+  }
+  
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-left">
+    <a href="{% url 'admin_user' %}" {% if 'admin_user' in request.path %}class="active-link"{% endif %}>Users</a>
+    <a href="{% url 'admin_ticket' %}" {% if 'admin_ticket' in request.path %}class="active-link"{% endif %}>Feedbacks</a>
+    <a href="{% url 'admin_lost_item' %}" {% if 'admin_lost_item' in request.path %}class="active-link"{% endif %}>Lost items</a>
+    <a href="{% url 'admin_found_item' %}" {% if 'admin_found_item' in request.path %}class="active-link"{% endif %}>Found items</a>
+</div>
+<div class="navbar-right">
+  
+  <a href="{% url 'admin_login' %}">Log out</a>
+</div>
+</div>
+
+</body>
+</html>

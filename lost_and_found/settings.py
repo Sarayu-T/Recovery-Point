@@ -135,3 +135,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'lostandfoundsystem13@gmail.com'
 EMAIL_HOST_PASSWORD = 'gakssxxbnivsagjw'
+
+MEDIA_ROOT = BASE_DIR / 'uploads'  # Path to the directory where user-uploaded files are stored
+MEDIA_URL = '/uploads/'

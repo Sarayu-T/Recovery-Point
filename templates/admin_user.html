@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Admin Users</title>
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/admin_user.css' %}">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+</head>
+<style>
+    
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #c8e8e9;
+}
+th,td{
+    text-align: center;
+}
+.issue{
+    width: 40%;
+}
+
+.subject{
+    width: 30%;
+}
+
+.name{
+    width:10%
+}
+
+.id{
+    width:5%;
+}
+.delete{
+    width:5%;
+}
+</style>
+<body>
+    {%include 'admin_navbar.html'%}
+    <h1>All Users</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="user_id">User ID</th>
+                <th class="name">Name</th>
+                <th class="email">email</th>
+                <th class="phone_no">phone_no</th>
+                <th class="delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone_no }}</td>
+                <td>
+                    <form action="{% url 'delete_user' user.user_id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

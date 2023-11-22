@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+    <title>MAIN PAGE</title>
+</head>
+
+<style>
+    
+    body {
+            font-family: 'Comfortaa', sans-serif;
+            background-image: url("../static/images/initial.jpeg");
+            background-size: 100% auto;
+        }
+
+        .header {
+        
+        color: #000;
+        padding-top: 20px;
+        padding-bottom: 100px;
+        text-align: center;
+        font-family: 'Comfortaa', sans-serif;
+        font-weight: 900;
+        display: block;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button {
+            padding: 15px;
+            background-color: #cce0e1;
+            color: #000;
+            text-decoration: none;
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: bold;
+            border-radius: 50px;
+            width: 600px;
+            height: 50px;
+            margin: 50px;
+            margin-left: 330px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+</style>
+
+<body>
+
+    <div class="header">
+        <h1>Lost and Found Management system</h1>
+    </div>
+
+    <a href="{% url 'signup_page' %}" class="button">User Login</a>
+    <a href="{% url 'admin_login' %}" class="button">Admin Login</a>
+</body>
+</html>

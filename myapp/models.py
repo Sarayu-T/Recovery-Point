@@ -18,7 +18,7 @@ class users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
-        
+
 class Ticket(models.Model):
     ticket_id = models.AutoField(primary_key=True)
     user_id = models.IntegerField(default=0) 
@@ -32,7 +32,7 @@ class Ticket(models.Model):
         
 class LostItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
-    user_id = models.IntegerField(default=0) 
+    user_id = models.IntegerField(default=0)
     item_name = models.CharField(max_length=30) # null=True means optional
     category = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
@@ -43,6 +43,7 @@ class LostItemDetails(models.Model):
     class Meta:
         managed = False
         db_table = 'lost_item'
+
 
 class FoundItemDetails(models.Model):
     id = models.AutoField(primary_key=True)
@@ -57,3 +58,14 @@ class FoundItemDetails(models.Model):
     class Meta:
         managed = False
         db_table = 'found_item'
+    
+
+class admin(models.Model):
+    admin_id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=128)
+
+    class Meta:
+        managed = False
+        db_table = 'admin'
+        

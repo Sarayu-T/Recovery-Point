@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/admin_login.css" />
+</head>
+
+<style>
+    body {
+        background-image: url("../static/images/initial.jpeg");
+        background-size: 100% auto;
+    }
+</style>
+<body>
+
+    <div class="wrapper">
+        <header>Login Form</header>
+        <form method="post" action="{% url 'admin_login' %}">
+            {% csrf_token %}
+            <div class="field email">
+                <div class="input-area">
+                    <input type="email" placeholder="Email Address" name="username" float="right"  required>
+                    <i class="icon fas fa-envelope"></i>
+                </div>
+            </div>
+            <div class="field password">
+                <div class="input-area">
+                    <input type="password" name="password" placeholder="Password">
+                    <i class="icon fas fa-lock"></i>
+                </div>
+            </div>
+            
+            <input type="submit" value="Login"><br><br>
+            <a href="{% url 'initial_page' %}" class="button"><- Go back</a>
+        </form>
+        
+    </div>
+
+
+</body>
+
+</html>

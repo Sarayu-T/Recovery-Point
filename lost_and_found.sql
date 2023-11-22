@@ -49,6 +49,13 @@ PRIMARY KEY(`ID`),
 FOREIGN KEY (`user_id`) references `users`(`user_id`) on update cascade on delete cascade
 );
 
+CREATE TABLE admin (
+`admin_id` int auto_increment not null,
+`username` varchar(30) not null,
+`password` varchar(128) not null,
+primary key(`admin_id`)
+); 
+
 -- To display all users, lost items and found items
 select * from users;
 select * from lost_item;

@@ -60,16 +60,17 @@
     {% if request.path == "/" %}
     <a href="{% url 'home' %}" class="active-link">Home</a>
 {% else %}
-    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'home' %}" {% if 'home' in request.path %}class="active-link"{% endif %}>Home</a>
 {% endif %}
-  <a href="{% url 'home' %}" {% if 'model_matching' in request.path %}class="active-link"{% endif %}>Matched reports</a>
-  <a href="{% url 'home' %}" >Searching</a>
-  <a href="{% url 'ticket' %}" {% if 'ticket' in request.path %}class="active-link"{% endif %}>Ticket</a>
+  <a href="{% url 'model_matching' %}" {% if 'model_matching' in request.path %}class="active-link"{% endif %}>Matched reports</a>
+  <a href="{% url 'search_items' %}" {% if 'search' in request.path %}class="active-link"{% endif %}>Searching</a>
+  <a href="{% url 'ticket' %}" {% if 'ticket' in request.path %}class="active-link"{% endif %}>Feedback</a>
 </div>
 <div class="navbar-right">
   
   <a href="{% url 'login_page' %}">Log out</a>
-  <a href="{%url 'home'}">Your reports</a>
+  <a href="{% url 'view_reports' %}" {% if 'view_reports' in request.path %}class="active-link"{% endif %}>Your reports</a>
+
 </div>
 
 </body>

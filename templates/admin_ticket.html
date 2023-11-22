@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Admin Tickets</title>
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/admin_ticket.css' %}">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+</head>
+<style>
+body{
+font-family: 'Times New Roman', Times, serif;
+background-color: #c8e8e9;
+}
+th,td{
+    text-align: center;
+}
+.issue{
+    width: 40%;
+}
+
+.subject{
+    width: 30%;
+}
+
+.name{
+    width:10%
+}
+
+.id{
+    width:5%;
+}
+.delete{
+    width:5%;
+}
+</style>
+<body>
+    {%include 'admin_navbar.html'%}
+    <h1>All Tickets</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="id">Ticket ID</th>
+                <th class="name">Name</th>
+                <th class="subject">Subject</th>
+                <th class="issue">Issue</th>
+                <th class="delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.ticket_id }}</td>
+                <td>{{ ticket.name }}</td>
+                <td>{{ ticket.subject }}</td>
+                <td>{{ ticket.issue }}</td>
+                <td>
+                    <form action="{% url 'delete_ticket' ticket.ticket_id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

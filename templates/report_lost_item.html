@@ -41,11 +41,13 @@
                 <b> Select Category of item * </b>
                 <select name="category" label="category">
                     <option value="Documents">Documents</option>
+                    <option value="Book">Book</option>
                     <option value="Gadgets">Gadgets</option>
                     <option value="Stationary">Stationary</option>
                     <option value="Jewelery">Jewelery</option>
                     <option value="Bags/Wallets">Bags/Wallets</option>
-                    <option value="Others">Others</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Others" selected>Others</option>
                 </select>
             </div>
             <div class="input-box message-box">
@@ -72,5 +74,26 @@
             
         </form>
     </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+           const datetimeInput = document.getElementById('datetime');
+
+           // Get the current date and time
+           const now = new Date();
+           const year = now.getFullYear();
+           const month = (now.getMonth() + 1).toString().padStart(2, '0');
+           const day = now.getDate().toString().padStart(2, '0');
+           const hours = now.getHours().toString().padStart(2, '0');
+           const minutes = now.getMinutes().toString().padStart(2, '0');
+
+           // Format the date and time as YYYY-MM-DDTHH:MM (required format for datetime-local input)
+           const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+           // Set the max attribute of the input element
+           datetimeInput.setAttribute('max', currentDateTime);
+       });
+   </script>
+
 </body>
 </html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search_results.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="search-main-stuff">
+    <h1>Search Lost and Found Items</h1>
+
+    <form action="{% url 'search_items' %}" method="GET">
+        <select name="filter_by">
+            <option value="item_name" {% if request.GET.filter_by == 'item_name' %}selected{% endif %}>Name</option>
+            <option value="category"{% if request.GET.filter_by == 'category' %}selected{% endif %}>Category</option>
+            <option value="description" {% if request.GET.filter_by == 'description' %}selected{% endif %}>Description</option>
+        </select>
+        <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q|default_if_none:'' }}">
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    <hr>
+
+    <div class="lost-items">
+    <h3>Lost Items</h3>
+    <br>
+    {% if lost_items %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="id">ID</th>
+                <th class="user_id">User ID</th>
+                <th class="name">Name</th>
+                <th class="category">Category</th>
+                <th class="description">Description</th>
+                <th class="location">Location</th>
+                <th class="datetime">Timestamp</th>
+                <th class="image">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lost_item in lost_items %}
+            <tr>
+                <td>{{ lost_item.id }}</td>
+                <td>{{ lost_item.user_id }}</td>
+                <td>{{ lost_item.item_name }}</td>
+                <td>{{ lost_item.category }}</td>
+                <td>{{ lost_item.description }}</td>
+                <td>{{ lost_item.location_lost }}</td>
+                <td>{{ lost_item.datetime }}</td>
+                {% if lost_item.item_image and lost_item.item_image.url %}
+                <td>
+                    <img src="{{ lost_item.item_image.url }}" alt="{{ lost_item.item_name }}"  style="width: 250px;">
+                </td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No results</p>
+    {% endif %}
+    </div>
+
+    <div class="found-items">
+    <h3>Found Items</h3>
+    <br>
+    {% if found_items %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="id">ID</th>
+                <th class="user_id">User ID</th>
+                <th class="name">Name</th>
+                <th class="category">Category</th>
+                <th class="description">Description</th>
+                <th class="location">Location</th>
+                <th class="datetime">Timestamp</th>
+                <th class="image">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for found_item in found_items %}
+            <tr>
+                <td>{{ found_item.id }}</td>
+                <td>{{ found_item.user_id }}</td>
+                <td>{{ found_item.item_name }}</td>
+                <td>{{ found_item.category }}</td>
+                <td>{{ found_item.description }}</td>
+                <td>{{ found_item.location_found }}</td>
+                <td>{{ found_item.datetime }}</td>
+                {% if found_item.item_image and found_item.item_image.url %}
+                <td>
+                    <img src="{{ found_item.item_image.url }}" alt="{{ found_item.item_name }}"  style="width: 250px;">
+                </td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% else %}
+    <p style="display: block;">No results</p>
+    {% endif %}
+
+</body>
+</html>
