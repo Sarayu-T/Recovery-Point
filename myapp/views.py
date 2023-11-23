@@ -287,8 +287,9 @@ def model_matching(request):
         for found_item in matching_found_items:
             similarity_desc = matching_algorithm(lost_item.description, found_item.description)
             similarity_name = matching_algorithm(lost_item.item_name, found_item.item_name)
-            #print(similarity_score)
-            if (similarity_desc > 20 and similarity_name > 30):  # Adjust the threshold as needed
+            similarity_loc = matching_algorithm(lost_item.location_lost, found_item.location_found)
+            
+            if (similarity_desc > 20 and similarity_name > 70 and similarity_loc > 45):  # Adjust the threshold as needed
                 matched_items.append((lost_item, found_item))
 
     return render(request, 'model_matching.html', {'matched_items': matched_items})
